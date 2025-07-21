@@ -1,3 +1,13 @@
+import Breadcrumbs from "~/components/Breadcrumbs";
+
+export const handle = {
+  breadcrumb: "menu"
+}
+
 export default function Menu() {
-  return <div></div>;
+  return (
+    <>
+      <Breadcrumbs />
+    </>
+  );
 }

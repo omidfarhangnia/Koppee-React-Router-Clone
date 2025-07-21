@@ -1,3 +1,13 @@
+import Breadcrumbs from "~/components/Breadcrumbs";
+
+export const handle = {
+    breadcrumb: "about us"
+}
+
 export default function About() {
-    return <div></div>;
+    return (
+        <>
+            <Breadcrumbs />
+        </>
+    );
 }

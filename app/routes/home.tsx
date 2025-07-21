@@ -1,3 +1,7 @@
 export default function Home() {
-  return <div></div>;
+  return (
+    <>
+      <div className="slider h-[50vh] bg-amber-800"></div>
+    </>
+  );
 }
