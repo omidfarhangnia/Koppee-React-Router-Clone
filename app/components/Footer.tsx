@@ -7,9 +7,9 @@ import { MdOutlineMail } from "react-icons/md";
 export default function Footer() {
     return (
         <footer className="@container">
-            <div className="px-[15px] pt-[120px] pb-[20px] relative bg-[url(/bg.jpg)] bg-cover bg-[#887564] bg-blend-multiply flex justify-center items-center">
+            <div className="px-[15px] pt-[120px] pb-[20px] relative bg-[url(/bg.jpg)] bg-cover flex justify-center items-center">
                 <div className="absolute top-[-2px] left-0 w-full bg-repeat-x z-10 bg-[url(/overlay-top.png)] h-[20px]"></div>
-                <div className="bg-[#43403ea6] absolute top-0 left-0 w-full h-full z-0"></div>
+                <div className="bg-[#37251e] opacity-90 absolute top-0 left-0 w-full h-full z-0"></div>
                 <div className="relative z-10 max-w-[1350px]">
                     <div className="text-white flex flex-col @4xl:flex-row @4xl:justify-around gap-[40px] @4xl:gap-[20px]">
                         <section className="@4xl:w-[25%]">
