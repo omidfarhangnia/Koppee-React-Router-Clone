@@ -21,6 +21,7 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
   const dropDownRef = useRef<HTMLLIElement>(null);
+  const dropDownBtn = useRef<HTMLButtonElement>(null);
 
   const handleDropdownToggle = (text: string) => {
     setOpenDropdown(openDropdown === text ? null : text);
@@ -29,6 +30,11 @@ export default function Header() {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropDownRef.current && !dropDownRef.current.contains(event.target as Node)) {
+        // the first condition is for stop setIsMobileMenuOpen(false); in clicking burger menu
+        // the second condition is for checking that dropDownBtn is not open because if its open we want to close dropdown not all menu
+        if (!(event.target as HTMLElement)?.getAttribute("aria-label")?.includes("Toggle") && !(dropDownBtn.current?.getAttribute("aria-expanded") === "true")) {
+          setIsMobileMenuOpen(false);
+        }
         setOpenDropdown(null);
       }
     }
@@ -40,8 +46,12 @@ export default function Header() {
     }
   }, [])
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location])
+
   return (
-    <header className="bg-[#33211D] @container">
+    <header className="bg-[#33211D] lg:bg-transparent @container absolute top-0 left-0 w-full z-20">
       <div className="flex flex-wrap justify-between mx-auto items-center py-4 px-4 @4xl:px-[4rem] max-w-[1350px]">
         <h1 className="uppercase text-white text-[calc(1.475rem_+_2.7vw)] font-bold font-roboto">
           <Link to="/">koppee</Link>
@@ -53,9 +63,9 @@ export default function Header() {
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileMenuOpen}
         >
-          <span className="w-[70%] h-[2px] bg-[#ffffffca]"></span>
-          <span className="w-[70%] h-[2px] bg-[#ffffffca]"></span>
-          <span className="w-[70%] h-[2px] bg-[#ffffffca]"></span>
+          <span aria-label="Toggle--span" className="w-[70%] h-[2px] bg-[#ffffffca]"></span>
+          <span aria-label="Toggle--span" className="w-[70%] h-[2px] bg-[#ffffffca]"></span>
+          <span aria-label="Toggle--span" className="w-[70%] h-[2px] bg-[#ffffffca]"></span>
         </button>
 
         <nav className={`grid w-full transition-all duration-300 ease-in-out @4xl:w-auto @4xl:grid-rows-[1fr] ${isMobileMenuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
@@ -68,6 +78,7 @@ export default function Header() {
                 return (
                   <li key={link.text} className="relative px-8 @4xl:px-0" ref={dropDownRef}>
                     <button
+                      ref={dropDownBtn}
                       onClick={() => handleDropdownToggle(link.text)}
                       type="button"
                       aria-haspopup="true"
