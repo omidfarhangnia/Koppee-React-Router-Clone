@@ -67,7 +67,7 @@ export default function Slider() {
 
   return (
     <section
-      className="h-[80vh] md:h-[90vh] @container relative overflow-hidden focus:outline-none"
+      className="h-[80vh] min-h-[600px] md:h-[90vh] @container relative overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => { setIsPaused(false) }}
     >
