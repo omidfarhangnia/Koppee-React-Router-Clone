@@ -67,7 +67,7 @@ export default function Slider() {
 
   return (
     <section
-      className="h-[80vh] md:h-[90vh] @container relative overflow-hidden"
+      className="h-[80vh] md:h-[90vh] @container relative overflow-hidden focus:outline-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => { setIsPaused(false) }}
     >
@@ -103,7 +103,7 @@ export default function Slider() {
           <span>{slides.length}</span>
         </div>
       </div>
-      <div className="absolute bottom-[-6px] left-0 w-full bg-repeat-x z-10 bg-[url(/overlay-bottom.png)] h-[20px]"></div>
+      <div className="absolute bottom-[-6px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-bottom.png)] h-[20px]"></div>
     </section >
   )
 }
