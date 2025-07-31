@@ -1,6 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-    --font-montserrat: 'Montserrat', sans-serif;
-    --font-roboto: 'Roboto', sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+}
+
+@layer components {
+  .section__mainStyle {
+    @apply py-[6rem] px-[1rem] flex items-center justify-center [&>div]:max-w-[1350px];
+  }
+
+  .section__divider {
+    @apply h-[100px] w-[2px] py-[1rem] bg-[#DA9F5B] inline-block;
+  }
+
+  .section__h2 {
+    @apply uppercase text-[#DA9F5B] text-[1.5rem] font-semibold tracking-[4px];
+  }
+  
+  .section__h3 {
+    @apply text-[calc(1.475rem_+_2.7vw)] lg:text-[72px] font-semibold text-center font-roboto;
+  }
 }
