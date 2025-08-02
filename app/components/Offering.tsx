@@ -2,7 +2,6 @@ import { Form } from "react-router";
 
 
 export default function Offering() {
-
     return (
         <section className="py-[6rem] flex items-center justify-center bg-[url('/bg.jpg')] bg-cover bg-center relative">
             <div className="bg-[#37251e] opacity-90 absolute top-0 left-0 w-full h-full z-0"></div>
