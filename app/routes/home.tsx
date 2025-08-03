@@ -4,6 +4,7 @@ import Services from "~/components/Services";
 import Slider from "~/components/Slider";
 import type { Route } from "../+types/root";
 import { sql } from "@vercel/postgres";
+import MenuAndPricing from "~/components/MenuAndPricing";
 
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
@@ -24,6 +25,7 @@ export default function Home() {
       <AboutUs />
       <Services />
       <Offering />
+      <MenuAndPricing />
     </>
   );
 }
