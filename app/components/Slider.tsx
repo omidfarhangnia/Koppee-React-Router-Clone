@@ -36,10 +36,12 @@ export default function Slider() {
   }, [])
 
   const handleNext = () => {
+    if(slides.length === 0) return;
     setCurrentIndex((i) => (i + 1) % slides.length)
   }
 
   const handlePrev = () => {
+    if(slides.length === 0) return;
     setCurrentIndex((i) => (i - 1 + slides.length) % slides.length)
   }
 
@@ -72,9 +74,9 @@ export default function Slider() {
       onMouseLeave={() => { setIsPaused(false) }}
     >
       <div className="transition-all duration-[.75s] flex w-full h-full" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-        {slides.map((slide, index) => {
+        {slides.map((slide) => {
           return (
-            <div key={index}
+            <div key={slide.id}
               style={{ backgroundImage: `url(${slide.imgUrl})`, backgroundColor: "#69250ec4", backgroundBlendMode: "exclusion" }}
               className={`w-full flex flex-shrink-0 flex-col items-center justify-center bg-cover bg-center pt-[100px] md:pt-[10vh]`}>
               <span className="text-[#DA9F5B] font-medium text-[calc(1rem_+_1vw)] capitalize font-roboto md:text-[2rem]">
