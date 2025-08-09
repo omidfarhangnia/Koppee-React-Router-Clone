@@ -30,7 +30,7 @@ function getYearMonthDay(date: Date) {
     }
 }
 
-export default function Booking() {
+export default function Booking({ isReservationPage }: { isReservationPage: boolean }) {
     const [currentDate, setCurrentDate] = useState("");
 
     useEffect(() => {
@@ -62,8 +62,14 @@ export default function Booking() {
     return (
         <section className="section__mainStyle p-0 bg-[url('/bg.jpg')] [&>div]:max-w-full bg-cover bg-center relative">
             <div className="bg-[#37251e] opacity-90 absolute top-0 left-0 w-full h-full z-0"></div>
-            <div className="absolute top-[-2px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-top.png)] h-[20px]"></div>
-            <div className="absolute bottom-[-6px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-bottom.png)] h-[20px]"></div>
+            {
+                !isReservationPage &&
+                <>
+                    <div className="absolute top-[-2px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-top.png)] h-[20px]"></div>
+                    <div className="absolute bottom-[-6px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-bottom.png)] h-[20px]"></div>
+                </>
+
+            }
             <div className="z-10 text-[#ffffff] grid grid-cols-1 md:grid-cols-2 md:gap-4">
                 <div className="py-24 px-8 md:max-w-[750px]">
                     <h2 className="text-[calc(1.575rem_+_3.9vw)] lg:text-[4.5rem] text-[#DA9F5B] font-bold font-roboto">30% OFF</h2>
@@ -101,4 +107,94 @@ export default function Booking() {
             </div>
         </section>
     )
+}
+
+type BookingDividerType = {
+    type: "image",
+    url: string,
+    alt: string
+} | {
+    type: "colorBox", color: string
+}
+
+interface BookingDividerImageType {
+    side: "top" | "bottom",
+    boxes: BookingDividerType[],
+}
+
+const BookingDividerImage: BookingDividerImageType[] = [
+    // top divider
+    {
+        side: "top",
+        boxes: [
+            { type: "image", url: "./menu-1.jpg", alt: "menu image 1" },
+            { type: "colorBox", color: "bg-[#583b27]" },
+            { type: "colorBox", color: "bg-[#150a05]" },
+            { type: "image", url: "./carousel-1.jpg", alt: "carousel image 1" },
+            { type: "image", url: "./service-2.jpg", alt: "service image 2" },
+            { type: "colorBox", color: "bg-[#7b5e2f]" },
+        ],
+    },
+    // top divider
+    {
+        side: "bottom",
+        boxes: [
+            { type: "image", url: "./menu-2.jpg", alt: "menu image 2" },
+            { type: "colorBox", color: "bg-[#5a3219]" },
+            { type: "colorBox", color: "bg-[#1d130e]" },
+            { type: "image", url: "./carousel-2.jpg", alt: "carousel image 2" },
+            { type: "image", url: "./service-1.jpg", alt: "service image 1" },
+            { type: "colorBox", color: "bg-[#423333]" },
+        ],
+    },
+]
+
+export function BookingDivider({ side }: { side: "top" | "bottom" }) {
+    if (side === "top") {
+        return (
+            <div className="pt-20 bg-[#FFFBF2]">
+                <div className="relative">
+                    <div className="bg-[#00000078] w-full h-full absolute top-0 left-0"></div>
+                    <div className="flex flex-wrap">
+                        {BookingDividerImage[0].boxes.map((box) => {
+                            if (box.type === "image") {
+                                return (
+                                    <div key={box.url} className="w-[50%] h-[200px]">
+                                        <img src={box.url} alt={box.alt} className="w-full h-full object-cover" />
+                                    </div>
+                                )
+                            } else {
+                                return (
+                                    <div className={`${box.color} w-[50%]`}></div>
+                                )
+                            }
+                        })}
+                    </div>
+                </div>
+            </div>
+        )
+    } else if (side === "bottom") {
+        return (
+            <div className="pb-20 bg-[#FFFBF2]">
+                <div className="relative">
+                    <div className="bg-[#00000078] w-full h-full absolute top-0 left-0"></div>
+                    <div className="flex flex-wrap">
+                        {BookingDividerImage[1].boxes.map((box) => {
+                            if (box.type === "image") {
+                                return (
+                                    <div key={box.url} className="w-[50%] h-[200px]">
+                                        <img src={box.url} alt={box.alt} className="w-full h-full object-cover" />
+                                    </div>
+                                )
+                            } else {
+                                return (
+                                    <div className={`${box.color} w-[50%]`}></div>
+                                )
+                            }
+                        })}
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
