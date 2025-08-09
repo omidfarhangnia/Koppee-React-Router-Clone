@@ -17,8 +17,12 @@
   .section__h2 {
     @apply uppercase text-[#DA9F5B] text-[1.5rem] font-semibold tracking-[4px];
   }
-  
+
   .section__h3 {
     @apply text-[calc(1.475rem_+_2.7vw)] lg:text-[72px] font-semibold text-center font-roboto;
+  }
+
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* turning black icon to white */
   }
 }
