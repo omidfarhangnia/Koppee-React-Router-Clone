@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Form } from "react-router";
+import { useEffect, useRef, useState } from "react";
+import { Form, useActionData, useNavigation } from "react-router";
 
 const visionItems = [
     {
@@ -32,6 +32,18 @@ function getYearMonthDay(date: Date) {
 
 export default function Booking({ isReservationPage }: { isReservationPage: boolean }) {
     const [currentDate, setCurrentDate] = useState("");
+    // controlling submitting state
+    const navigation = useNavigation();
+    const isSubmitting = navigation.state === "submitting";
+    // controlling action messages
+    const actionData = useActionData();
+    const formRef = useRef<HTMLFormElement>(null);
+
+    useEffect(() => {
+        if (actionData?.success && !isSubmitting) {
+            formRef.current?.reset();
+        }
+    }, [actionData, isSubmitting]);
 
     useEffect(() => {
         const today = new Date();
@@ -55,7 +67,7 @@ export default function Booking({ isReservationPage }: { isReservationPage: bool
             tomorrow.setDate(today.getDate() + 1);
 
             const { year: tomorrowYear, month: tomorrowMonth, day: tomorrowDay } = getYearMonthDay(tomorrow);
-            setCurrentDate(`${tomorrowYear}-${tomorrowMonth}-${tomorrowDay}T"08:00"`);
+            setCurrentDate(`${tomorrowYear}-${tomorrowMonth}-${tomorrowDay}T08:00`);
         }
     }, []);
 
@@ -83,26 +95,29 @@ export default function Booking({ isReservationPage }: { isReservationPage: bool
                 </div>
                 <div className="py-24 px-8 bg-[#33211dcc]">
                     <h3 className="mb-4 font-bold text-[calc(1.375rem_+_1.5vw)] capitalize text-center">Book Your Table</h3>
-                    <Form action="/?index" className="flex flex-col gap-4 md:gap-8 py-2">
+                    <Form ref={formRef} action="/?index" method="post" className="flex flex-col gap-4 md:gap-8 py-2">
                         <input type="hidden" value={"booking"} name="actionType" />
                         <div>
-                            <label htmlFor="name" className="sr-only">name</label>
-                            <input required className="px-6 py-3 border-[#DA9F5B] border-solid placeholder:text-[#7e7e7e] text-[18px] md:text-[20px] lg:text-[24px] placeholder:capitalize focus-within:outline-none focus-within:shadow-[0px_0px_1px_2px_#c27215] transition-all border-1 w-full" type="text" name="name" id="name" placeholder="name" />
+                            <label htmlFor="booking-name" className="sr-only">name</label>
+                            <input required className="px-6 py-3 border-[#DA9F5B] border-solid placeholder:text-[#7e7e7e] text-[18px] md:text-[20px] lg:text-[24px] placeholder:capitalize focus-within:outline-none focus-within:shadow-[0px_0px_1px_2px_#c27215] transition-all border-1 w-full" type="text" name="name" id="booking-name" placeholder="name" />
                         </div>
                         <div>
-                            <label htmlFor="email" className="sr-only">email</label>
-                            <input required className="px-6 py-3 border-[#DA9F5B] border-solid placeholder:text-[#7e7e7e] text-[18px] md:text-[20px] lg:text-[24px] placeholder:capitalize focus-within:outline-none focus-within:shadow-[0px_0px_1px_2px_#c27215] transition-all border-1 w-full" type="email" name="email" id="email" placeholder="email" />
+                            <label htmlFor="booking-email" className="sr-only">email</label>
+                            <input required className="px-6 py-3 border-[#DA9F5B] border-solid placeholder:text-[#7e7e7e] text-[18px] md:text-[20px] lg:text-[24px] placeholder:capitalize focus-within:outline-none focus-within:shadow-[0px_0px_1px_2px_#c27215] transition-all border-1 w-full" type="email" name="email" id="booking-email" placeholder="email" />
                         </div>
                         <div>
-                            <label htmlFor="date" className="sr-only">date</label>
-                            <input required min={currentDate} defaultValue={currentDate} className="px-6 py-3 border-[#DA9F5B] border-solid placeholder:text-[#7e7e7e] text-[18px] md:text-[20px] lg:text-[24px] placeholder:capitalize focus-within:outline-none focus-within:shadow-[0px_0px_1px_2px_#c27215] transition-all border-1 w-full" type="datetime-local" name="date" id="date" placeholder="date" />
+                            <label htmlFor="booking-date" className="sr-only">date</label>
+                            <input required min={currentDate} defaultValue={currentDate} className="px-6 py-3 border-[#DA9F5B] border-solid placeholder:text-[#7e7e7e] text-[18px] md:text-[20px] lg:text-[24px] placeholder:capitalize focus-within:outline-none focus-within:shadow-[0px_0px_1px_2px_#c27215] transition-all border-1 w-full" type="datetime-local" name="date" id="booking-date" placeholder="date" />
                         </div>
                         <div>
-                            <label htmlFor="people" className="sr-only">number of people</label>
-                            <input required className="px-6 py-3 border-[#DA9F5B] border-solid placeholder:text-[#7e7e7e] text-[18px] md:text-[20px] lg:text-[24px] placeholder:capitalize focus-within:outline-none focus-within:shadow-[0px_0px_1px_2px_#c27215] transition-all border-1 w-full" type="number" name="people" id="people" placeholder="Number of People" min={1} max={50} />
+                            <label htmlFor="booking-people" className="sr-only">number of people</label>
+                            <input required className="px-6 py-3 border-[#DA9F5B] border-solid placeholder:text-[#7e7e7e] text-[18px] md:text-[20px] lg:text-[24px] placeholder:capitalize focus-within:outline-none focus-within:shadow-[0px_0px_1px_2px_#c27215] transition-all border-1 w-full" type="number" name="people" id="booking-people" placeholder="Number of People" min={1} max={50} />
                         </div>
-                        <button className="px-6 py-3 bg-[#DA9F5B] hover:bg-[#b58550] transition-all text-[#212529] capitalize font-semibold font-montserrat text-[18px] md:text-[22px] lg:text-[24px] w-full" type="submit">book now</button>
+                        <button disabled={isSubmitting} className="px-6 py-3 bg-[#DA9F5B] hover:bg-[#b58550] transition-all text-[#212529] disabled:hover:bg-[#DA9F5B] cursor-pointer disabled:cursor-default disabled:opacity-60 capitalize font-semibold font-montserrat text-[18px] md:text-[22px] lg:text-[24px] w-full focus-within:outline-none" type="submit">
+                            {isSubmitting ? "submitting" : "book now"}
+                        </button>
                     </Form>
+                    <p className={`mt-4 h-[20px] capitalize text-center ${actionData?.success ? "text-green-300" : "text-red-400"}`}>{actionData?.message}</p>
                 </div>
             </div>
         </section>
