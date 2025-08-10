@@ -3,6 +3,7 @@ import { FaXTwitter, FaMeta, FaLinkedin, FaInstagram } from "react-icons/fa6";
 import { FiMapPin } from "react-icons/fi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdOutlineMail } from "react-icons/md";
+import OfferingForm from "./Offering-form";
 
 export default function Footer() {
     return (
@@ -60,10 +61,7 @@ export default function Footer() {
                         <section className="mt-[20px] @4xl:mt-0 @4xl:w-[30%]">
                             <h3 className="uppercase mb-[1rem] text-[calc(1.275rem_+_.3vw)] font-semibold font-roboto tracking-[2px]">Newsletter</h3>
                             <p className="font-montserrat font-medium mb-[20px]">Amet elitr vero magna sed ipsum sit kasd sea elitr lorem rebum</p>
-                            <Form className="flex items-center h-14" method="post" action="/?index">
-                                <input required className="w-[70%] bg-[#ffffff] px-[20px] h-full text-[#212529] focus-within:outline-none placeholder:text-[#505050] font-montserrat" placeholder="Your Email" type="email" name="email" />
-                                <input className="bg-[#DA9F5B] text-[#212529] w-[30%] h-full capitalize font-montserrat font-semibold" type="submit" value="sign up" />
-                            </Form>
+                            <OfferingForm />
                         </section>
                     </div>
                     <div className="text-white mt-[70px] flex flex-col font-semilight gap-[9px] text-center font-montserrat capitalize border-t-[1px] border-t-[#b7b7b7] py-[15px]">

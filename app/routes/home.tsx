@@ -15,9 +15,8 @@ export async function action({ request }: Route.ActionArgs) {
 
     try {
       await sql`INSERT INTO UserEmail(email) VALUES(${email})`
-      return { success: true, message: "Email updated successfully" };
     } catch (err) {
-      return { success: false, message: "Failed to update email" }
+      console.log(err)
     }
   } else if (actionType === "booking") {
     console.log("hello there")
