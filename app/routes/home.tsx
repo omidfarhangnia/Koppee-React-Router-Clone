@@ -6,6 +6,7 @@ import type { Route } from "../+types/root";
 import { sql } from "@vercel/postgres";
 import MenuAndPricing from "~/components/MenuAndPricing";
 import Booking from "~/components/Booking";
+import Overview from "~/components/Overview";
 
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
@@ -71,6 +72,7 @@ export default function Home() {
       <Offering />
       <MenuAndPricing />
       <Booking isReservationPage={false} />
+      <Overview />
     </>
   );
 }
