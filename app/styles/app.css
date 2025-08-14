@@ -19,7 +19,7 @@
   }
 
   .section__h3 {
-    @apply text-[calc(1.475rem_+_2.7vw)] lg:text-[72px] font-semibold text-center font-roboto;
+    @apply text-[calc(1.475rem_+_2.7vw)] lg:text-[72px] text-[#33211D] font-semibold text-center font-roboto capitalize;
   }
 
   input[type="datetime-local"]::-webkit-calendar-picker-indicator {

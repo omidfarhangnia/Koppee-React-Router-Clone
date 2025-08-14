@@ -9,7 +9,7 @@ export default function Overview() {
           <h2 className="section__h2">testimonial</h2>
           <h3 className="section__h3">our clients say</h3>
         </div>
-        <div className="max-w-[100vw]">
+        <div className="max-w-[100vw] select-none">
           <OverviewInfiniteSlider />
         </div>
       </div>
@@ -17,11 +17,47 @@ export default function Overview() {
   );
 }
 
-const cards = [
-  { name: "one", style: "bg-green-300" },
-  { name: "two", style: "bg-red-300" },
-  { name: "three", style: "bg-blue-300" },
-  { name: "four", style: "bg-pink-300" },
+interface Card {
+  name: string;
+  profession: string;
+  imgUrl: string;
+  id: number;
+  message: string;
+}
+
+const cards: Card[] = [
+  {
+    id: 0,
+    name: "client name",
+    profession: "profession",
+    imgUrl: "./testimonial-1.jpg",
+    message:
+      "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
+  },
+  {
+    id: 1,
+    name: "client name",
+    profession: "profession",
+    imgUrl: "./testimonial-2.jpg",
+    message:
+      "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
+  },
+  {
+    id: 2,
+    name: "client name",
+    profession: "profession",
+    imgUrl: "./testimonial-3.jpg",
+    message:
+      "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
+  },
+  {
+    id: 3,
+    name: "client name",
+    profession: "profession",
+    imgUrl: "./testimonial-4.jpg",
+    message:
+      "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
+  },
 ];
 
 interface JumbStatus {
@@ -84,6 +120,7 @@ function OverviewInfiniteSlider() {
       // just for sure
       if (downClientX === undefined || upClientX === undefined) return;
 
+      console.log(isMovingRef.current);
       // stop multiplay moves
       if (isMovingRef.current) return;
       isMovingRef.current = true;
@@ -149,7 +186,7 @@ function OverviewInfiniteSlider() {
       }
 
       isMovingRef.current = false;
-    }, 750);
+    }, 600);
   }
 
   return (
@@ -175,11 +212,11 @@ function OverviewInfiniteSlider() {
           handleMoveWithoutTouch(e, "up");
         }
       }}
-      className="bg-blue-500 overflow-hidden cursor-grab active:cursor-grabbing select-none"
+      className="overflow-hidden cursor-grab active:cursor-grabbing"
     >
       <div
         className={`flex flex-row w-full flex-nowrap ${
-          isMovingRef.current && "duration-[.75s] transition-all"
+          isMovingRef.current && "duration-[.5s] transition-all"
         }`}
         style={{ transform: `translateX(-${currentCard * 100}%)` }}
       >
@@ -187,10 +224,56 @@ function OverviewInfiniteSlider() {
           return (
             <div
               key={index}
-              className={`${card.style} shrink-0 w-[100%] h-[200px]`}
+              className={`shrink-0 w-[100%] flex items-center justify-center select-none`}
             >
-              {card.name} === {index + 1}
+              <div className="w-full md:w-[60%] max-w-[500px] flex flex-col gap-4 px-6 py-4">
+                <div className="flex items-center gap-4">
+                  <div>
+                    <img
+                      src={card.imgUrl}
+                      alt={`the image of ${card.name}`}
+                      className="w-[80px] h-[80px] md:w-[120px] md:h-[120px]"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-[calc(1.275rem_+_.3vw)] md:text-[2rem] capitalize text-[#33211D] font-roboto">
+                      {card.name}
+                    </h4>
+                    <h5 className="italic text-[#555555] md:text-[1.3rem] font-montserrat capitalize text-shadow-2xs">
+                      {card.profession}
+                    </h5>
+                  </div>
+                </div>
+                <p className="font-montserrat md:text-[1.2rem] text-[#555555] text-shadow-2xs">
+                  {card.message}
+                </p>
+              </div>
             </div>
+          );
+        })}
+      </div>
+      <div className="flex items-center justify-center gap-[10px] mt-4 md:mt-8">
+        {cards.map((_, index) => {
+          const isSelected = currentCard % 4 === index;
+          return (
+            <span
+              onPointerDown={(e) => {
+                // we dont want to run onPointerDown or onPointerUp
+                e.stopPropagation();
+                setCurrentCard(index + 4);
+
+                // for stoping unpredictable bug
+                setTimeout(() => {
+                  isMovingRef.current = false;
+                }, 600);
+              }}
+              key={index}
+              className={`transition-all h-[20px] md:h-[30px] cursor-pointer ${
+                isSelected
+                  ? "bg-[#33211D] w-[30px] md:w-[60px]"
+                  : "bg-[#DA9F5B] w-[20px] md:w-[30px]"
+              } inline-block rounded-full`}
+            ></span>
           );
         })}
       </div>
