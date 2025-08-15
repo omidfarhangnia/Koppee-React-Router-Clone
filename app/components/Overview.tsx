@@ -212,10 +212,10 @@ function OverviewInfiniteSlider() {
           handleMoveWithoutTouch(e, "up");
         }
       }}
-      className="overflow-hidden cursor-grab active:cursor-grabbing"
+      className="overflow-hidden max-w-[80vw] cursor-grab active:cursor-grabbing"
     >
       <div
-        className={`flex flex-row w-full flex-nowrap ${
+        className={`flex flex-row w-full flex-nowrap${
           isMovingRef.current && "duration-[.5s] transition-all"
         }`}
         style={{ transform: `translateX(-${currentCard * 100}%)` }}
