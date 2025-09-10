@@ -2,6 +2,7 @@ import Breadcrumbs from "~/components/Breadcrumbs";
 import Booking, { BookingDivider } from "~/components/Booking";
 import type { Route } from "../+types/root";
 import { sql } from "@vercel/postgres";
+import { checkReservationValidation } from "./home";
 
 export const handle = {
   breadcrumb: "reservation",
@@ -14,18 +15,14 @@ export async function action({ request }: Route.ActionArgs) {
   const date = formData.get("date") as string;
   const people = Number(formData.get("people")) as number;
 
-  if (
-    typeof name !== "string" ||
-    name.length < 2 ||
-    typeof email !== "string" ||
-    !email.includes("@") ||
-    typeof date !== "string" ||
-    isNaN(new Date(date).getTime()) ||
-    isNaN(people) ||
-    people < 1 ||
-    people > 50
-  ) {
-    return { success: false, message: "invalid data provided." };
+  const reservationValidation = checkReservationValidation(
+    name,
+    email,
+    date,
+    people
+  );
+  if (!reservationValidation.ok) {
+    return reservationValidation.result;
   }
 
   try {

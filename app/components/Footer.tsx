@@ -6,7 +6,7 @@ import { MdOutlineMail } from "react-icons/md";
 import OfferingForm from "./Offering-form";
 import type { ReactElement } from "react";
 
-interface GetInTouchData {
+export interface GetInTouchData {
   id: string;
   icon: ReactElement;
   label: string;

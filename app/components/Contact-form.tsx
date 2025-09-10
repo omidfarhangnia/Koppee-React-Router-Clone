@@ -1,38 +1,38 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { useEffect, useRef, type ReactElement } from "react";
+import { useEffect, useRef } from "react";
 import { Form, useActionData, useNavigation } from "react-router";
+import type { GetInTouchData } from "./Footer";
 
-interface CommunicationChannels {
-  icon: ReactElement;
-  title: string;
-  type: string;
-  data: string;
-  id: number;
-}
-
+type CommunicationChannels = Omit<
+  GetInTouchData & { title: string },
+  "className"
+>;
 const communicationChannels: CommunicationChannels[] = [
   {
-    id: 0,
+    id: "communicationChannels1",
     icon: <FaLocationDot color="#DA9F5B" size={35} />,
     title: "address",
-    data: "123 street, new york, USA",
-    type: "address",
+    label: "123 street, new york, USA",
+    href: "https://maps.app.goo.gl/fwexgDxU8VmSYdB38",
+    target: "_blank",
   },
   {
-    id: 1,
+    id: "communicationChannels2",
     icon: <FaPhoneAlt color="#DA9F5B" size={35} />,
     title: "phone",
-    data: "+012 345 6789",
-    type: "phone",
+    label: "+012 345 6789",
+    href: "tel:+01234567890",
+    target: "_self",
   },
   {
-    id: 2,
+    id: "communicationChannels3",
     icon: <MdOutlineMailOutline color="#DA9F5B" size={35} />,
     title: "email",
-    data: "info@example.com",
-    type: "email",
+    label: "info@example.com",
+    href: "mailto:info@example.com",
+    target: "_self",
   },
 ];
 
@@ -61,34 +61,20 @@ export default function ContactForm() {
         <div className="w-full flex flex-wrap gap-8 my-8 items-center justify-center">
           {communicationChannels.map((channel) => {
             return (
-              <div
+              <a
                 key={channel.id}
-                className="w-full md:w-[30%] flex flex-col items-center justify-center gap-2"
+                href={channel.href}
+                target={channel.target}
+                className="w-full md:w-[30%] flex-col items-center justify-center gap-2 flex"
               >
                 <span>{channel.icon}</span>
                 <span className="font-bold text-[calc(1.275rem_+_.3vw)] lg:text-[1.5rem] capitalize text-[#33211D] font-roboto">
                   {channel.title}
                 </span>
-                {channel.type === "phone" && (
-                  <a href={`tel:${channel.data.replace(/\s/g, "")}`}>
-                    <span className="font-montserrat text-[#555555]">
-                      {channel.data}
-                    </span>
-                  </a>
-                )}
-                {channel.type === "email" && (
-                  <a href={`mailto:${channel.data}`}>
-                    <span className="font-montserrat text-[#555555]">
-                      {channel.data}
-                    </span>
-                  </a>
-                )}
-                {channel.type === "address" && (
-                  <span className="font-montserrat text-[#555555] capitalize">
-                    {channel.data}
-                  </span>
-                )}
-              </div>
+                <span className="font-montserrat text-[#555555]">
+                  {channel.label}
+                </span>
+              </a>
             );
           })}
         </div>
@@ -96,7 +82,7 @@ export default function ContactForm() {
           <iframe
             title="location of axe point in canada"
             className="w-full md:w-[45%]"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7665.324154606022!2d-118.67861526928817!3d61.29465395453378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53db4b3490edca4f%3A0xd64412fee126f556!2sAxe%20Point%2C%20NT%20X0E%200M0%2C%20Canada!5e0!3m2!1sen!2sth!4v1755282059923!5m2!1sen!2sth"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3020.589680821986!2d-73.960301!3d40.793034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDQ3JzM0LjkiTiA3M8KwNTcnMzcuMSJX!5e0!3m2!1sfa!2sth!4v1757532879576!5m2!1sfa!2sth"
             width="600"
             height="450"
             loading="lazy"
@@ -152,6 +138,8 @@ export default function ContactForm() {
                   message
                 </label>
                 <textarea
+                  minLength={20}
+                  maxLength={500}
                   required
                   className="w-full px-6 py-3 resize-none min-h-[150px] placeholder:text-[#495057] placeholder:capitalize border-1 border-[#ced4da] focus-within:outline-none focus-within:border-[#000000]"
                   placeholder="message"

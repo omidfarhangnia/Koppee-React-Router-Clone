@@ -7,24 +7,105 @@ export const handle = {
   breadcrumb: "contact",
 };
 
+function checkContactMessageValidation(
+  name: any,
+  email: any,
+  subject: any,
+  message: any
+): { ok: boolean; result: { success: boolean; message: string } } {
+  if (typeof name !== "string" || name === null)
+    return {
+      ok: false,
+      result: {
+        success: false,
+        message: "Invalid name.",
+      },
+    };
+
+  if (name.length < 2)
+    return {
+      ok: false,
+      result: {
+        success: false,
+        message: "name must be at least 2 characters.",
+      },
+    };
+
+  if (typeof email !== "string")
+    return {
+      ok: false,
+      result: {
+        success: false,
+        message: "Invalid email address",
+      },
+    };
+
+  if (!email.includes("@"))
+    return {
+      ok: false,
+      result: {
+        success: false,
+        message: "email address must includes @ character.",
+      },
+    };
+
+  if (typeof subject !== "string")
+    return {
+      ok: false,
+      result: {
+        success: false,
+        message: "Invalid subject.",
+      },
+    };
+
+  if (subject.length < 10)
+    return {
+      ok: false,
+      result: {
+        success: false,
+        message: "subject must be at least 10 characters.",
+      },
+    };
+
+  if (typeof message !== "string")
+    return {
+      ok: false,
+      result: {
+        success: false,
+        message: "Invalid message.",
+      },
+    };
+
+  if (message.length < 30 || message.length > 500)
+    return {
+      ok: false,
+      result: {
+        success: false,
+        message: "the message length must be between 30 to 500",
+      },
+    };
+
+  return {
+    ok: true,
+    result: { success: true, message: "validation completed succesfully" },
+  };
+}
+
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const subject = formData.get("subject");
-  const message = formData.get("message");
+  const name = formData.get("name") as string;
+  const email = formData.get("email") as string;
+  const subject = formData.get("subject") as string;
+  const message = formData.get("message") as string;
 
-  if (
-    typeof name !== "string" ||
-    name.length < 2 ||
-    typeof email !== "string" ||
-    !email.includes("@") ||
-    typeof subject !== "string" ||
-    subject.length < 2 ||
-    typeof message !== "string" ||
-    message.length < 5
-  ) {
-    return { success: false, message: "invalid data provided." };
+  const reservationValidation = checkContactMessageValidation(
+    name,
+    email,
+    subject,
+    message
+  );
+  if (!reservationValidation.ok) {
+    return reservationValidation.result;
   }
 
   try {
