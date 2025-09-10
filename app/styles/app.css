@@ -26,3 +26,27 @@
     filter: invert(1); /* turning black icon to white */
   }
 }
+
+@layer theme {
+  .swiper-pagination {
+    @apply flex items-center justify-center gap-[10px] mt-4 md:mt-8;
+  }
+
+  .swiper-pagination-bullet {
+    @apply w-[20px] h-[20px] rounded-full bg-[#DA9F5B] transition-all duration-300 cursor-pointer;
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply bg-[#33211D];
+  }
+
+  @media (min-width: 768px) {
+    .swiper-pagination-bullet {
+      @apply w-[25px] h-[25px];
+    }
+
+    .swiper-pagination-bullet-active {
+      @apply w-[60px];
+    }
+  }
+}
