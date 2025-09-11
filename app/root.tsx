@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./styles/app.css";
+import { useEffect, useState } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,7 +24,55 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+function InitialLoader() {
+  return (
+    <div id="initial__loader" className="initial__loader">
+      <div className="initial__loader--container">
+        <span className="initial__loader--boxes"></span>
+        <span className="initial__loader--boxes"></span>
+        <span className="initial__loader--boxes"></span>
+        <span className="initial__loader--boxes"></span>
+        <span className="initial__loader--boxes"></span>
+        <span className="initial__loader--boxes"></span>
+        <span className="initial__loader--boxes"></span>
+        <span className="initial__loader--boxes"></span>
+        <span className="initial__loader--boxes"></span>
+      </div>
+    </div>
+  );
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      const loader = document.getElementById("initial__loader");
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add("fade-out");
+
+          const onAnimationEnd = () => {
+            setIsLoading(false);
+            loader.removeEventListener("animationend", onAnimationEnd);
+          };
+
+          loader.addEventListener("animationend", onAnimationEnd);
+        }, 500);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -33,6 +82,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        {isLoading && <InitialLoader />}
         {children}
         <ScrollRestoration />
         <Scripts />
