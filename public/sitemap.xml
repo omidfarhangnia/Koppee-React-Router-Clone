@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://koppee-react-router-clone.vercel.app/</loc>
+        <lastmod>2025-09-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://koppee-react-router-clone.vercel.app/about</loc>
+        <lastmod>2025-09-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://koppee-react-router-clone.vercel.app/service</loc>
+        <lastmod>2025-09-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://koppee-react-router-clone.vercel.app/menu</loc>
+        <lastmod>2025-09-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://koppee-react-router-clone.vercel.app/reservation</loc>
+        <lastmod>2025-09-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://koppee-react-router-clone.vercel.app/testimonial</loc>
+        <lastmod>2025-09-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://koppee-react-router-clone.vercel.app/contact</loc>
+        <lastmod>2025-09-11</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>
