@@ -16,7 +16,7 @@ const initialServices: Service[] = [
         header: "Fastest Door Delivery",
         parg: "Sit lorem ipsum et diam elitr est dolor sed duo. Guberg sea et et lorem dolor sed est sit invidunt, dolore tempor diam ipsum takima erat tempor",
         logo: <FaTruck size={24} />,
-        img: "/service-1.jpg",
+        img: "/service-1.webp",
         imgAlt: "someone is Pouring coffee in a big cup",
         id: 0
     },
@@ -24,7 +24,7 @@ const initialServices: Service[] = [
         header: "Fresh Coffee Beans",
         parg: "Sit lorem ipsum et diam elitr est dolor sed duo. Guberg sea et et lorem dolor sed est sit invidunt, dolore tempor diam ipsum takima erat tempor",
         logo: <FaCoffee size={24} />,
-        img: "/service-2.jpg",
+        img: "/service-2.webp",
         imgAlt: "coffee beans every where",
         id: 1
     },
@@ -32,7 +32,7 @@ const initialServices: Service[] = [
         header: "Best Quality Coffee",
         parg: "Sit lorem ipsum et diam elitr est dolor sed duo. Guberg sea et et lorem dolor sed est sit invidunt, dolore tempor diam ipsum takima erat tempor",
         logo: <RiMedalLine size={24} />,
-        img: "/service-3.jpg",
+        img: "/service-3.webp",
         imgAlt: "Making a latte",
         id: 2
     },
@@ -40,7 +40,7 @@ const initialServices: Service[] = [
         header: "Online Table Booking",
         parg: "Sit lorem ipsum et diam elitr est dolor sed duo. Guberg sea et et lorem dolor sed est sit invidunt, dolore tempor diam ipsum takima erat tempor",
         logo: <FaTable size={24} />,
-        img: "/service-4.jpg",
+        img: "/service-4.webp",
         imgAlt: "a small table in a cafe",
         id: 3
     }
