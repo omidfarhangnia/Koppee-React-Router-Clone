@@ -12,9 +12,9 @@ import "./styles/app.css";
 import { useEffect, useState } from "react";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { rel: "preload", href: "https://fonts.googleapis.com" },
   {
-    rel: "preconnect",
+    rel: "preload",
     href: "https://fonts.gstatic.com",
     crossOrigin: "anonymous",
   },
@@ -78,6 +78,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Koppee React Router Clone</title>
+        <meta
+          name="description"
+          content="This project is a clone of the open-source Koppee template by ThemeWagon. Built with React and React Router for learning and practice purposes. Original Template: https://themewagon.com/themes/koppee/"
+        />
         <Meta />
         <Links />
       </head>

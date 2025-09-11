@@ -15,7 +15,7 @@
   }
 
   .section__h2 {
-    @apply uppercase text-[#DA9F5B] text-[1.5rem] font-semibold tracking-[4px];
+    @apply uppercase text-[#8b5e2c] text-[1.5rem] font-semibold tracking-[4px];
   }
 
   .section__h3 {
