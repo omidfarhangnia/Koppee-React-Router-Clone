@@ -6,22 +6,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
 import type { Route } from "./+types/root";
+import appStyles from "./styles/app.css?url";
 import "./styles/app.css";
 import { useEffect, useState } from "react";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "preload", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preload",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap",
-  },
+  { rel: "stylesheet", href: appStyles },
+  { rel: "preload", as: "image", href: "/carousel-1.jpg" },
 ];
 
 function InitialLoader() {
