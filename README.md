@@ -2,7 +2,7 @@
 
 This project is a modern and complete rebuild of the **Koppee** coffee shop website template, developed using the latest web technologies. The primary goal was to practice and implement advanced concepts in React, server-side routing with React Router, form management, and building reusable components, with a strong emphasis on **performance optimization** and **best practices**.
 
-**[View Live Demo](https://koppee-react-router-clone-3vxzb6n26-omids-projects-4059c488.vercel.app/)** | **[Original Template](https://themewagon.com/themes/koppee/)**
+**[View Live Demo](https://koppee-react-router-clone.vercel.app/)** | **[Original Template](https://themewagon.com/themes/koppee/)**
 
 ---
 ## ✨ Key Features
