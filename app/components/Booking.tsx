@@ -90,12 +90,12 @@ export default function Booking({
   }, []);
 
   return (
-    <section className="section__mainStyle p-0 bg-[url('/bg.jpg')] [&>div]:max-w-full bg-cover bg-center relative">
+    <section className="section__mainStyle p-0 bg-[url('/bg.webp')] [&>div]:max-w-full bg-cover bg-center relative">
       <div className="bg-[#37251e] opacity-90 absolute top-0 left-0 w-full h-full z-0"></div>
       {!isReservationPage && (
         <>
-          <div className="absolute top-[-2px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-top.png)] h-[20px]"></div>
-          <div className="absolute bottom-[-6px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-bottom.png)] h-[20px]"></div>
+          <div className="absolute top-[-2px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-top.webp)] h-[20px]"></div>
+          <div className="absolute bottom-[-6px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-bottom.webp)] h-[20px]"></div>
         </>
       )}
       <div className="z-10 text-[#ffffff] grid grid-cols-1 md:grid-cols-2 md:gap-4">
@@ -235,7 +235,7 @@ const BookingDividerImage: BookingDividerImageType[] = [
   {
     side: "top",
     boxes: [
-      { type: "image", url: "./menu-1.jpg", alt: "menu image 1" },
+      { type: "image", url: "./menu-1.webp", alt: "menu image 1" },
       { type: "colorBox", color: "bg-[#583b27]" },
       { type: "colorBox", color: "bg-[#150a05]" },
       { type: "image", url: "./carousel-1.webp", alt: "carousel image 1" },
@@ -247,7 +247,7 @@ const BookingDividerImage: BookingDividerImageType[] = [
   {
     side: "bottom",
     boxes: [
-      { type: "image", url: "./menu-2.jpg", alt: "menu image 2" },
+      { type: "image", url: "./menu-2.webp", alt: "menu image 2" },
       { type: "colorBox", color: "bg-[#5a3219]" },
       { type: "colorBox", color: "bg-[#1d130e]" },
       { type: "image", url: "./carousel-2.webp", alt: "carousel image 2" },

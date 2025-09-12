@@ -23,7 +23,7 @@ const initialDrinks: DrinksGroup[] = [
                 id: "0",
                 name: "Black Coffee",
                 description: "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
-                image: "/menu-1.jpg",
+                image: "/menu-1.webp",
                 imageAlt: "a cup of Black Coffee on the table",
                 price: 5
             },
@@ -31,7 +31,7 @@ const initialDrinks: DrinksGroup[] = [
                 id: "1",
                 name: "Chocolate Coffee",
                 description: "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
-                image: "/menu-2.jpg",
+                image: "/menu-2.webp",
                 imageAlt: "a cup of Chocolate Coffee on the table",
                 price: 7
             },
@@ -39,7 +39,7 @@ const initialDrinks: DrinksGroup[] = [
                 id: "2",
                 name: "Coffee With Milk",
                 description: "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
-                image: "/menu-3.jpg",
+                image: "/menu-3.webp",
                 imageAlt: "a cup of Coffee With Milk on the table",
                 price: 9
             }
@@ -52,7 +52,7 @@ const initialDrinks: DrinksGroup[] = [
                 id: "3",
                 name: "Black Coffee",
                 description: "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
-                image: "/menu-1.jpg",
+                image: "/menu-1.webp",
                 imageAlt: "a cup of Black Coffee on the table",
                 price: 5
             },
@@ -60,7 +60,7 @@ const initialDrinks: DrinksGroup[] = [
                 id: "4",
                 name: "Chocolate Coffee",
                 description: "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
-                image: "/menu-2.jpg",
+                image: "/menu-2.webp",
                 imageAlt: "a cup of Chocolate Coffee on the table",
                 price: 7
             },
@@ -68,7 +68,7 @@ const initialDrinks: DrinksGroup[] = [
                 id: "5",
                 name: "Coffee With Milk",
                 description: "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
-                image: "/menu-3.jpg",
+                image: "/menu-3.webp",
                 imageAlt: "a cup of Coffee With Milk on the table",
                 price: 9
             }

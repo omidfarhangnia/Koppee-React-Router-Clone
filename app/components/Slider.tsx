@@ -163,7 +163,7 @@ export default function Slider() {
           <span>{slides.length}</span>
         </div>
       </div>
-      <div className="absolute bottom-[-6px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-bottom.png)] h-[20px]"></div>
+      <div className="absolute bottom-[-6px] left-0 w-full bg-repeat-x z-20 bg-[url(/overlay-bottom.webp)] h-[20px]"></div>
     </section>
   );
 }

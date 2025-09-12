@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export default function Page() {
     return (
         <div className="w-full h-[100svh] relative @container">
-            <div className="w-[150%] h-[150%] bg-[url(/menu-1.jpg)] bg-cover fixed top-[-35%] right-[-30%] blur-[6px]" ></div>
+            <div className="w-[150%] h-[150%] bg-[url(/menu-1.webp)] bg-cover fixed top-[-35%] right-[-30%] blur-[6px]" ></div>
             <div className="w-full h-full fixed top-0 left-0 bg-[#000000c2]"></div>
             <div className="w-full h-full top-0 left-0 fixed flex flex-col font-montserrat items-center justify-center">
                 <h4 className="text-[clamp(24px,7vw,80px)] text-[#ffffff]">404</h4>

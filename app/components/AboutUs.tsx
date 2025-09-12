@@ -21,7 +21,7 @@ export default function AboutUs() {
                         <Button text="learn more" textColor="text-[#ffffff]" bgColor="bg-[#1B110F]" borderColor="border-[#984200]" hoverBorderColor="hover:border-[#0a0706]" />
                     </div>
                     <div className="h-[400px]">
-                        <img src="/about.png" alt="Roasted coffee beans next to a cup of coffee" className="h-full object-contain w-full" />
+                        <img src="/about.webp" alt="Roasted coffee beans next to a cup of coffee" className="h-full object-contain w-full" />
                     </div>
                     <div className="p-[20px] flex flex-col gap-[10px] md:gap-[1rem] items-start">
                         <h4 className="font-semibold text-[calc(1.375rem_+_1.5vw)] font-roboto">Our Vision</h4>

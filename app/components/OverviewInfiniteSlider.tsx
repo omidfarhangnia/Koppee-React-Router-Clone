@@ -18,7 +18,7 @@ const cards: Card[] = [
     id: 0,
     name: "client name",
     profession: "profession",
-    imgUrl: "./testimonial-1.jpg",
+    imgUrl: "./testimonial-1.webp",
     message:
       "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
   },
@@ -26,7 +26,7 @@ const cards: Card[] = [
     id: 1,
     name: "client name",
     profession: "profession",
-    imgUrl: "./testimonial-2.jpg",
+    imgUrl: "./testimonial-2.webp",
     message:
       "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
   },
@@ -34,7 +34,7 @@ const cards: Card[] = [
     id: 2,
     name: "client name",
     profession: "profession",
-    imgUrl: "./testimonial-3.jpg",
+    imgUrl: "./testimonial-3.webp",
     message:
       "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
   },
@@ -42,7 +42,7 @@ const cards: Card[] = [
     id: 3,
     name: "client name",
     profession: "profession",
-    imgUrl: "./testimonial-4.jpg",
+    imgUrl: "./testimonial-4.webp",
     message:
       "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
   },
@@ -50,7 +50,7 @@ const cards: Card[] = [
     id: 4,
     name: "client name",
     profession: "profession",
-    imgUrl: "./testimonial-1.jpg",
+    imgUrl: "./testimonial-1.webp",
     message:
       "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
   },
@@ -58,7 +58,7 @@ const cards: Card[] = [
     id: 5,
     name: "client name",
     profession: "profession",
-    imgUrl: "./testimonial-2.jpg",
+    imgUrl: "./testimonial-2.webp",
     message:
       "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
   },
@@ -66,7 +66,7 @@ const cards: Card[] = [
     id: 6,
     name: "client name",
     profession: "profession",
-    imgUrl: "./testimonial-3.jpg",
+    imgUrl: "./testimonial-3.webp",
     message:
       "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
   },
@@ -74,7 +74,7 @@ const cards: Card[] = [
     id: 7,
     name: "client name",
     profession: "profession",
-    imgUrl: "./testimonial-4.jpg",
+    imgUrl: "./testimonial-4.webp",
     message:
       "Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita.",
   },
@@ -136,7 +136,7 @@ const OverviewInfiniteSlider = () => {
                         <h4 className="font-semibold text-[calc(1.275rem_+_.3vw)] md:text-[1.5rem] lg:text-[2rem] capitalize text-[#33211D] font-roboto">
                           {card.name}
                         </h4>
-                        <h5 className="italic text-[#555555] md:text-[1rem] lg:text-[1.3rem] font-montserrat capitalize text-shadow-2xs">
+                        <h5 className="text-[#555555] md:text-[1rem] lg:text-[1.3rem] font-montserrat capitalize text-shadow-2xs">
                           {card.profession}
                         </h5>
                       </div>

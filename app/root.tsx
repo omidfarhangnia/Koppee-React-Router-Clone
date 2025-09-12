@@ -12,8 +12,22 @@ import "./styles/app.css";
 import { useEffect, useState } from "react";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "stylesheet", href: appStyles },
   { rel: "preload", as: "image", href: "/carousel-1.webp" },
+  {
+    rel: "preload",
+    as: "font",
+    href: "/fonts/Roboto-VariableFont_wdth,wght.woff2",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "preload",
+    as: "font",
+    href: "/fonts/Montserrat-VariableFont_wght.woff2",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
+  { rel: "stylesheet", href: appStyles },
 ];
 
 function InitialLoader() {
