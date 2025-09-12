@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "stylesheet", href: appStyles },
-  { rel: "preload", as: "image", href: "/carousel-1.jpg" },
+  { rel: "preload", as: "image", href: "/carousel-1.webp" },
 ];
 
 function InitialLoader() {
